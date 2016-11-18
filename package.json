@@ -1,0 +1,40 @@
+{
+  "name": "asset-pipe-common",
+  "version": "1.0.0-alpha.1",
+  "author": {
+    "name": "Trygve Lie",
+    "email": "post@trygve-lie.com"
+  },
+  "description": "Misc common methods",
+  "main": "./lib/common.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:asset-pipe/asset-pipe-common.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "contributors": [
+    {
+      "name": "Trygve Lie",
+      "email": "post@trygve-lie.com"
+    }
+  ],
+  "engines": {
+    "node" : "6.x"
+  },
+  "bugs": {
+    "url": "https://github.com/asset-pipe/asset-pipe-common/issues"
+  },
+  "licenses": ["MIT"],
+  "dependencies": {
+    "readable-stream": "2.2.2"
+  },
+  "devDependencies": {
+    "JSONStream": "1.2.1",
+    "tap": "8.0.0"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  }
+}
