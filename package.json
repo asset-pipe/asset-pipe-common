@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/asset-pipe/asset-pipe-common/issues"
   },
-  "licenses": ["MIT"],
+  "license": "MIT",
   "dependencies": {
     "readable-stream": "2.2.2"
   },
