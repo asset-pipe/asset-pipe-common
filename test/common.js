@@ -1,8 +1,7 @@
 "use strict";
 
 const stream = require('stream');
-// const concat = require('concat-stream');
-const Foo = require('../');
+const lib = require('../');
 const tap = require('tap');
 const JSONStream  = require('JSONStream');
 const fs = require('fs');
@@ -26,15 +25,14 @@ const b = ['d', 'a','b','c'];
 
 
 tap.test('not a real test', (t) => {
-//    const source = sourceStream(a);
     const file = fs.createReadStream('./test/mock/feed.a.json');
     const parser = JSONStream.parse('*');
 
-    const foo = new Foo();
-    file.pipe(parser).pipe(foo);
-//    source.pipe(foo);
-    foo.on('finish', () => {
-        console.log(foo.hash);
+    const hasher = new lib.SourceHasher();
+    file.pipe(parser).pipe(hasher);
+
+    hasher.on('finish', () => {
+        console.log(hasher.hash);
         t.end();
     });
 });
