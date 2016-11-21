@@ -2,7 +2,7 @@
 
 const stream = require('stream');
 // const concat = require('concat-stream');
-const Foo = require('../lib/foo.js');
+const Foo = require('../');
 const tap = require('tap');
 const JSONStream  = require('JSONStream');
 const fs = require('fs');
