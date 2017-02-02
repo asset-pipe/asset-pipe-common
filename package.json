@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "JSONStream": "1.2.1",
-    "tap": "8.0.1"
+    "tap": "10.0.1"
   },
   "scripts": {
     "test": "tap test/*.js"
