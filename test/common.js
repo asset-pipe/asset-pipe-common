@@ -1,27 +1,24 @@
-"use strict";
+'use strict';
 
-const stream = require('stream');
+// const stream = require('stream');
 const lib = require('../');
 const tap = require('tap');
-const JSONStream  = require('JSONStream');
+const JSONStream = require('JSONStream');
 const fs = require('fs');
 
 
+// const sourceStream = (arr) => new stream.Readable({
+//     objectMode: false,
+//     read (n) {
+//         arr.forEach((chunk) => {
+//             this.push(chunk);
+//         });
+//         this.push(null);
+//     },
+// });
 
-const sourceStream = (arr) => {
-    return new stream.Readable({
-        objectMode : false,
-        read: function (n) {
-            arr.forEach((chunk) => {
-                this.push(chunk);
-            });
-            this.push(null);
-        }
-    });
-}
-
-const a = ['a','b','c'];
-const b = ['d', 'a','b','c'];
+// const a = ['a', 'b', 'c'];
+// const b = ['d', 'a', 'b', 'c'];
 
 
 tap.test('not a real test', (t) => {
@@ -36,7 +33,6 @@ tap.test('not a real test', (t) => {
         t.end();
     });
 });
-
 
 
 tap.test('hasher() - hash a String - should match given hash', (t) => {

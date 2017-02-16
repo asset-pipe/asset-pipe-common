@@ -20,9 +20,6 @@
       "email": "post@trygve-lie.com"
     }
   ],
-  "engines": {
-    "node" : "6.x"
-  },
   "bugs": {
     "url": "https://github.com/asset-pipe/asset-pipe-common/issues"
   },
@@ -32,9 +29,15 @@
   },
   "devDependencies": {
     "JSONStream": "1.2.1",
+    "eslint": "^3.15.0",
+    "eslint-config-finn": "^1.0.1",
     "tap": "10.0.2"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "tap test/*.js"
-  }
+  },
+  "files": [
+    "lib"
+  ]
 }
