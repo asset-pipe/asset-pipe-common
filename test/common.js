@@ -36,22 +36,22 @@ tap.test('not a real test', (t) => {
 
 
 tap.test('hasher() - hash a String - should match given hash', (t) => {
-    t.equal(lib.hasher('abc'), 'a9993e364706816aba3e25717850c26c9cd0d89d');
-    t.equal(lib.hasher('abce'), '0a431a7631cabf6b11b984a943127b5e0aa9d687');
+    t.equal(lib.hasher('abc'), 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
+    t.equal(lib.hasher('abce'), '84e73dc50f2be9000ab2a87f8026c1f45e1fec954af502e9904031645b190d4f');
     t.end();
 });
 
 tap.test('hasher() - hash a Buffer - should match given hash', (t) => {
-    t.equal(lib.hasher(new Buffer('abc')), 'a9993e364706816aba3e25717850c26c9cd0d89d');
-    t.equal(lib.hasher(new Buffer('abc').toString()), 'a9993e364706816aba3e25717850c26c9cd0d89d');
-    t.equal(lib.hasher(new Buffer('abce')), '0a431a7631cabf6b11b984a943127b5e0aa9d687');
-    t.equal(lib.hasher(new Buffer('abce').toString()), '0a431a7631cabf6b11b984a943127b5e0aa9d687');
+    t.equal(lib.hasher(new Buffer('abc')), 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
+    t.equal(lib.hasher(new Buffer('abc').toString()), 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad');
+    t.equal(lib.hasher(new Buffer('abce')), '84e73dc50f2be9000ab2a87f8026c1f45e1fec954af502e9904031645b190d4f');
+    t.equal(lib.hasher(new Buffer('abce').toString()), '84e73dc50f2be9000ab2a87f8026c1f45e1fec954af502e9904031645b190d4f');
     t.end();
 });
 
 tap.test('hasher() - source contains hexadecimal escape sequence - should match given hash', (t) => {
-    t.equal(lib.hasher('ab\xff'), 'ba5142a8207bd61baddf325088732e71cbfe8eb6');
-    t.equal(lib.hasher(new Buffer('ab\xff')), 'ba5142a8207bd61baddf325088732e71cbfe8eb6');
-    t.equal(lib.hasher(new Buffer('ab\xff').toString()), 'ba5142a8207bd61baddf325088732e71cbfe8eb6');
+    t.equal(lib.hasher('ab\xff'), '90629f3210df046be595674cf165db584faf8163f2c20983098b21bc16a32b81');
+    t.equal(lib.hasher(new Buffer('ab\xff')), '90629f3210df046be595674cf165db584faf8163f2c20983098b21bc16a32b81');
+    t.equal(lib.hasher(new Buffer('ab\xff').toString()), '90629f3210df046be595674cf165db584faf8163f2c20983098b21bc16a32b81');
     t.end();
 });
