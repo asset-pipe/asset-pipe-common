@@ -19,7 +19,7 @@ This module have the following API:
 
 ### IdHasher()
 
-Writable stream to build a hash out of all the `id` properties in an [asset feed](#data-forma).
+Writable stream to build a hash out of all the `id` properties in an [asset feed](#data-format).
 
 ```js
 const common = require('asset-pipe-common');
@@ -40,7 +40,7 @@ hasher.on('finish', () => {
 
 ### SourceHasher()
 
-Writable stream to build a hash out of all the `source` properties in an [asset feed](#data-forma).
+Writable stream to build a hash out of all the `source` properties in an [asset feed](#data-format).
 
 ```js
 const common = require('asset-pipe-common');
