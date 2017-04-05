@@ -17,9 +17,30 @@ $ npm install asset-pipe-common
 This module have the following API:
 
 
+### IdHasher()
+
+Writable stream to build a hash out of all the `id` properties in an [asset feed](#data-forma).
+
+```js
+const common = require('asset-pipe-common');
+const JSONStream = require('JSONStream');
+const fs = require('fs');
+
+const file = fs.createReadStream('./asset-feed.json');
+const parser = JSONStream.parse('*');
+const hasher = new common.IdHasher();
+
+file.pipe(parser).pipe(hasher);
+
+hasher.on('finish', () => {
+    console.log(hasher.hash);
+});
+```
+
+
 ### SourceHasher()
 
-Writable stream to build a hash out of all the `source` properties in an [asset feed][#data-forma].
+Writable stream to build a hash out of all the `source` properties in an [asset feed](#data-forma).
 
 ```js
 const common = require('asset-pipe-common');
