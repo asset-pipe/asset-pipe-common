@@ -1,5 +1,7 @@
 # asset-pipe-common
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/asset-pipe/asset-pipe-common.svg)](https://greenkeeper.io/)
+
 Common utility methods shared accross the [asset-pipe project][asset-pipe]. Intended for use by other
 modules in the [asset-pipe project][asset-pipe]
 
