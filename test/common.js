@@ -29,7 +29,7 @@ tap.test('not a real test', (t) => {
     file.pipe(parser).pipe(hasher);
 
     hasher.on('finish', () => {
-//        console.log(hasher.hash);
+        // console.log(hasher.hash);
         t.end();
     });
 });
