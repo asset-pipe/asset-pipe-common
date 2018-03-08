@@ -105,12 +105,28 @@ Arguments:
 
 *   fileType - `String` - extension to be used on the file. Ex; `json`.
 
-Returns a String on the following format: `tmp-{random-value}.{fileType}`.
+Returns a String of the following format: `tmp-{random-value}.{fileType}`.
 
 ```js
 const common = require('@asset-pipe/common');
 const tmpFile = common.createTemporaryFilename('json');
 console.log(tmpFile);
+```
+
+### hashArray(arr)
+
+Given an array of hashes, deterministically produces a single hash. Array order is important for determinism.
+
+Arguments:
+
+*   arr = `string[]` - strings to be hashed together to produce a single hash
+
+Returns a promise that will resolve into a hash string.
+
+```js
+const { hashArray } = require('@asset-pipe/common');
+const hash = await hashArray(['abc1a2b3', 'bac1a2b3', 'ca21a2b3']);
+console.log(hash);
 ```
 
 ## Data format
