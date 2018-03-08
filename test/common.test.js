@@ -8,6 +8,7 @@ const {
     FileHasher,
     SourceHasher,
     createTemporaryFilename,
+    hashArray,
 } = require('../');
 
 test('SourceHasher() - feed stream source hash', done => {
@@ -101,4 +102,12 @@ test('createTemporaryFilename()', () => {
     const type = 'js';
     const regex = new RegExp(`^tmp-[0-9a-f-]{5,40}.${type}$`);
     expect(createTemporaryFilename(type)).toMatch(regex);
+});
+
+test('hashArray() - takes array of hashes, resolves as a hash', async () => {
+    expect.hasAssertions();
+    const hash = await hashArray(['abc1acb2', 'abc1acb2', 'abc1acb2']);
+    expect(hash).toBe(
+        '31675a591c1f2963a9ee2d48af5e23b352885db705210818d203e2ba2fc752b4'
+    );
 });
