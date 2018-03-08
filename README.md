@@ -1,30 +1,26 @@
-# asset-pipe-common
+# @asset-pipe/common
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/asset-pipe/asset-pipe-common.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/asset-pipe/@asset-pipe/common.svg)](https://greenkeeper.io/)
 
 Common utility methods shared accross the [asset-pipe project][asset-pipe]. Intended for use by other
 modules in the [asset-pipe project][asset-pipe]
 
-
-
 ## Installation
 
 ```bash
-$ npm install asset-pipe-common
+$ npm install @asset-pipe/common
 ```
-
 
 ## API
 
 This module have the following API:
-
 
 ### IdHasher()
 
 Writable stream to build a hash out of all the `id` properties in an [asset feed](#data-format).
 
 ```js
-const common = require('asset-pipe-common');
+const common = require('@asset-pipe/common');
 const JSONStream = require('JSONStream');
 const fs = require('fs');
 
@@ -39,13 +35,12 @@ hasher.on('finish', () => {
 });
 ```
 
-
 ### SourceHasher()
 
 Writable stream to build a hash out of all the `source` properties in an [asset feed](#data-format).
 
 ```js
-const common = require('asset-pipe-common');
+const common = require('@asset-pipe/common');
 const JSONStream = require('JSONStream');
 const fs = require('fs');
 
@@ -60,13 +55,12 @@ hasher.on('finish', () => {
 });
 ```
 
-
 ### FileHasher()
 
 Writable stream to build a hash out of the content of a non object mode stream.
 
 ```js
-const common = require('asset-pipe-common');
+const common = require('@asset-pipe/common');
 const fs = require('fs');
 
 const file = fs.createReadStream('./assets.js');
@@ -79,19 +73,18 @@ hasher.on('finish', () => {
 });
 ```
 
-
 ### hasher(source)
 
 Creates a hash out of a String or Buffer
 
 Arguments:
 
- - source - `String` or `Buffer` - the contents to hash
+*   source - `String` or `Buffer` - the contents to hash
 
 Returns a hash.
 
 ```js
-const common = require('asset-pipe-common');
+const common = require('@asset-pipe/common');
 const fs = require('fs');
 
 fs.readFile('.assets.js', (err, data) => {
@@ -100,24 +93,21 @@ fs.readFile('.assets.js', (err, data) => {
 });
 ```
 
-
 ### createTemporaryFilename(fileType)
 
 Creates a random file name intended to be used for temp files.
 
 Arguments:
 
- - fileType - `String` - extension to be used on the file. Ex; `json`.
+*   fileType - `String` - extension to be used on the file. Ex; `json`.
 
 Returns a String on the following format: `tmp-{random-value}.{fileType}`.
 
 ```js
-const common = require('asset-pipe-common');
+const common = require('@asset-pipe/common');
 const tmpFile = common.createTemporaryFilename('json');
 console.log(tmpFile);
 ```
-
-
 
 ## Data format
 
@@ -130,14 +120,13 @@ into an object which looks something like this:
 
 ```json
 {
-    "id":"c645cf572a8f5acf8716e4846b408d3b1ca45c58",
-    "source":"\"use strict\";module.exports.world=function(){return\"world\"};",
-    "deps":{},
-    "file":"./assets/js/bar.js"
+    "id": "c645cf572a8f5acf8716e4846b408d3b1ca45c58",
+    "source":
+        "\"use strict\";module.exports.world=function(){return\"world\"};",
+    "deps": {},
+    "file": "./assets/js/bar.js"
 }
 ```
-
-
 
 ## License
 
@@ -162,8 +151,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
 
 [commonjs]: https://nodejs.org/docs/latest/api/modules.html
 [asset-pipe]: https://github.com/asset-pipe
