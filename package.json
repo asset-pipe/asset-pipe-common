@@ -1,6 +1,6 @@
 {
   "name": "asset-pipe-common",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0",
   "author": {
     "name": "Trygve Lie",
     "email": "post@trygve-lie.com"
@@ -11,9 +11,7 @@
     "type": "git",
     "url": "git@github.com:asset-pipe/asset-pipe-common.git"
   },
-  "keywords": [
-    "test"
-  ],
+  "keywords": ["test"],
   "contributors": [
     {
       "name": "Trygve Lie",
@@ -28,16 +26,71 @@
     "readable-stream": "2.3.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-conventional": "^6.1.3",
     "JSONStream": "1.3.1",
-    "eslint": "4.8.0",
-    "eslint-config-finn": "3.0.0",
-    "tap": "10.7.2"
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^4.8.1",
+    "eslint-config-finn": "^3.0.0",
+    "eslint-config-finn-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.9.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.2",
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1"
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "tap test/*.js"
+    "test": "jest --coverage",
+    "lint:format": "eslint --fix .",
+    "lint:commit": "commitlint --from=HEAD~1",
+    "precommit": "lint-staged",
+    "cm": "git-cz"
   },
-  "files": [
-    "lib"
-  ]
+  "files": ["lib"],
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "tabWidth": 4,
+    "overrides": [
+      {
+        "files": "*.json",
+        "options": {
+          "tabWidth": 2
+        }
+      },
+      {
+        "files": ".eslintrc",
+        "options": {
+          "parser": "json",
+          "tabWidth": 2
+        }
+      }
+    ]
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix --config ./.eslintrc", "git add"],
+    "{*.json,*.md,.eslintrc}": ["prettier --write", "git add"]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
+  }
 }
