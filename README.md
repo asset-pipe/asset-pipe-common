@@ -1,5 +1,9 @@
 # @asset-pipe/common
 
+[![Travis CI Build Status](https://img.shields.io/travis/asset-pipe/asset-pipe-common/master.svg)](http://travis-ci.org/asset-pipe/asset-pipe-common)
+[![NPM version](https://img.shields.io/npm/v/@asset-pipe/common.svg)](https://npmjs.org/package/@asset-pipe/common)
+[![Dependency Status](https://img.shields.io/david/asset-pipe/asset-pipe-common.svg)](https://david-dm.org/asset-pipe/asset-pipe-common)
+[![Dev Dependency Status](https://img.shields.io/david/dev/asset-pipe/asset-pipe-common.svg)](https://david-dm.org/asset-pipe/asset-pipe-common#info=devDependencies)
 [![Greenkeeper badge](https://badges.greenkeeper.io/asset-pipe/@asset-pipe/common.svg)](https://greenkeeper.io/)
 
 Common utility methods shared accross the [asset-pipe project][asset-pipe]. Intended for use by other
