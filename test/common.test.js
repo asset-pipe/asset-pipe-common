@@ -27,6 +27,18 @@ test('SourceHasher() - feed stream source hash', done => {
     });
 });
 
+test('SourceHasher() - feed stream source hash', done => {
+    expect.hasAssertions();
+    const sourceHasher = new SourceHasher();
+
+    sourceHasher.on('error', err => {
+        expect(err).toMatchSnapshot();
+        done();
+    });
+
+    sourceHasher.write(undefined);
+});
+
 test('IdHasher() - feed stream id hash', done => {
     expect.hasAssertions();
     const file = fs.createReadStream('./test/mock/feed.a.json');
@@ -41,6 +53,19 @@ test('IdHasher() - feed stream id hash', done => {
         );
         done();
     });
+});
+
+test('IdHasher() - feed stream id hash', done => {
+    expect.hasAssertions();
+
+    const idHasher = new IdHasher();
+
+    idHasher.on('error', err => {
+        expect(err).toMatchSnapshot();
+        done();
+    });
+
+    idHasher.write(undefined);
 });
 
 test('FileHasher() - file stream hash', done => {
@@ -106,7 +131,7 @@ test('createTemporaryFilename()', () => {
 
 test('hashArray() - takes array of hashes, resolves as a hash', async () => {
     expect.hasAssertions();
-    const hash = await hashArray(['abc1acb2', 'abc1acb2', 'abc1acb2']);
+    const hash = hashArray(['abc1acb2', 'abc1acb2', 'abc1acb2']);
     expect(hash).toBe(
         '31675a591c1f2963a9ee2d48af5e23b352885db705210818d203e2ba2fc752b4'
     );
