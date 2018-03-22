@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IdHasher() - feed stream id hash 1`] = `[TypeError: Cannot read property 'id' of undefined]`;
+
+exports[`SourceHasher() - feed stream source hash 1`] = `[TypeError: Cannot read property 'source' of undefined]`;
