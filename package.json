@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "readable-stream": "2.3.3"
+    "readable-stream": "2.3.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^6.1.3",
